@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class ItemAdapter(private val list:ArrayList<String>): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
-    val TAG = this.javaClass.simpleName
+    val TAG = this.javaClass.simpleName + "/asdf"
 
     class ItemViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val nameTv: TextView = itemView.findViewById(R.id.name_textview)
