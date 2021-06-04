@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Log.d(TAG, "onCreate()")
 
         initializeBluetooth()
 
@@ -68,6 +67,9 @@ class MainActivity : AppCompatActivity() {
                     super.onScanResult(callbackType, result)
                     Log.d(TAG, "onScanResult() ${result}")
 
+                    if(result==null) return
+
+//                    var BTDevice:BTDevice = BTDevice()
                 }
 
                 override fun onBatchScanResults(results: MutableList<ScanResult>?) {
@@ -82,13 +84,13 @@ class MainActivity : AppCompatActivity() {
             }
 
         CoroutineScope(Dispatchers.IO).launch{
-            BA.bluetoothLeScanner.startScan(callback)
-            delay(5000)
+            BA.bluetoothLeScanner.startScan(callback,)
+            delay(3000)
 
             withContext(Dispatchers.Main){
                 BA.bluetoothLeScanner.stopScan(callback)
 //                    var results = BA.
-//                    Log.d(TAG, "scan result: ${results}")
+                    Log.d(TAG, "scan result: ${callback.toString()}")
 
                 progressBar.visibility = View.GONE
             }
